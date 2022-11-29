@@ -1,5 +1,6 @@
 package lk.ijse.dep9.dao;
 
+import lk.ijse.dep9.dao.exception.ConstraintViolationException;
 import lk.ijse.dep9.entity.SuperEntity;
 
 import java.io.Serializable;
@@ -10,7 +11,7 @@ public interface CrudDAO<T extends SuperEntity, ID extends Serializable> extends
 
     long count();
 
-    void deleteById(ID PK) ;
+    void deleteById(ID PK) throws ConstraintViolationException;
 
     boolean existsById(ID PK);
 
@@ -18,8 +19,8 @@ public interface CrudDAO<T extends SuperEntity, ID extends Serializable> extends
 
     Optional<T> findById(ID PK);
 
-    T save(T entity) ;
+    T save(T entity) throws ConstraintViolationException ;
 
-    T update(T entity) ;
+    T update(T entity) throws ConstraintViolationException ;
 
 }
