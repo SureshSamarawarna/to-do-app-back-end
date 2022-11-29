@@ -25,6 +25,7 @@ public class UserDAOImpl implements UserDAO {
             PreparedStatement stm = connection.prepareStatement("SELECT user_name FROM USER");
             ResultSet rst = stm.executeQuery();
             rst.next();
+            return rst.getLong(1);
         }catch (SQLException e){
             throw new RuntimeException(e);
         }
