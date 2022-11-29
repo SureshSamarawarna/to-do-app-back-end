@@ -11,5 +11,5 @@ CREATE TABLE TodoItem(
                          user_name VARCHAR(50) NOT NULL ,
                          description VARCHAR(250) NOT NULL ,
                          status ENUM('DONE','NOT-DONE') NOT NULL ,
-                         CONSTRAINT 'un_fk' FOREIGN KEY (user_name) REFERENCES USER (user_name)
+                         CONSTRAINT  FOREIGN KEY (user_name) REFERENCES USER (user_name)
 )
