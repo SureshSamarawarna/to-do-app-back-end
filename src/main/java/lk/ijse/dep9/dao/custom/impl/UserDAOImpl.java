@@ -1,45 +1,52 @@
 package lk.ijse.dep9.dao.custom.impl;
 
 import lk.ijse.dep9.dao.custom.UserDAO;
-import lk.ijse.dep9.entity.SuperEntity;
+import lk.ijse.dep9.dao.exception.ConstraintViolationException;
+import lk.ijse.dep9.entity.User;
 
-import java.io.Serializable;
+import java.sql.Connection;
 import java.util.List;
 import java.util.Optional;
 
 public class UserDAOImpl implements UserDAO {
+    private Connection connection;
+
+    public UserDAOImpl(Connection connection) {
+        this.connection = connection;
+    }
+
     @Override
     public long count() {
         return 0;
     }
 
     @Override
-    public void deleteById(Serializable PK) {
+    public void deleteById(String PK) throws ConstraintViolationException {
 
     }
 
     @Override
-    public boolean existsById(Serializable PK) {
+    public boolean existsById(String PK) {
         return false;
     }
 
     @Override
-    public List findAll() {
+    public List<User> findAll() {
         return null;
     }
 
     @Override
-    public Optional findById(Serializable PK) {
+    public Optional<User> findById(String PK) {
         return Optional.empty();
     }
 
     @Override
-    public SuperEntity save(SuperEntity entity) {
+    public User save(User entity) throws ConstraintViolationException {
         return null;
     }
 
     @Override
-    public SuperEntity update(SuperEntity entity) {
+    public User update(User entity) throws ConstraintViolationException {
         return null;
     }
 }
