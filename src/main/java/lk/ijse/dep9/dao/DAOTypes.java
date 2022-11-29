@@ -1,5 +1,5 @@
 package lk.ijse.dep9.dao;
 
 public enum DAOTypes {
-    USER, TodoItem
+    USER, TODO_ITEM
 }

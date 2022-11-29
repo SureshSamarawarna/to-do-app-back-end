@@ -1,17 +1,17 @@
 package lk.ijse.dep9.dao;
 
+import lk.ijse.dep9.dao.exception.ConstraintViolationException;
 import lk.ijse.dep9.entity.SuperEntity;
 
 import java.io.Serializable;
-import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
 public interface CrudDAO<T extends SuperEntity, ID extends Serializable> extends SuperDAO {
 
-    long count() throws SQLException;
+    long count();
 
-    void deleteById(String user_name) throws SQLException;
+    void deleteById(ID PK) throws ConstraintViolationException;
 
     boolean existsById(ID PK);
 
@@ -19,8 +19,8 @@ public interface CrudDAO<T extends SuperEntity, ID extends Serializable> extends
 
     Optional<T> findById(ID PK);
 
-    T save(T entity) ;
+    T save(T entity) throws ConstraintViolationException ;
 
-    T update(T entity) ;
+    T update(T entity) throws ConstraintViolationException ;
 
 }
